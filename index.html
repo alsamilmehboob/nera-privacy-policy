@@ -26,6 +26,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -53,8 +57,10 @@
     }
 
     .logo {
-      width: 76px;
-      height: 76px;
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 20px;
       margin-bottom: 14px;
     }
 
@@ -87,6 +93,7 @@
     h3 {
       font-size: 17px;
       margin-bottom: 6px;
+      color: var(--text);
     }
 
     p {
@@ -137,6 +144,11 @@
       h1 {
         font-size: 28px;
       }
+
+      .logo {
+        width: 82px;
+        height: 82px;
+      }
     }
   </style>
 </head>
@@ -147,27 +159,22 @@
 
     <header>
 
-  <img
-    src="nera-logo.png"
-    alt="NERA logo"
-    style="
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    "
-  >
+      <img
+        src="nera-logo.png"
+        alt="NERA logo"
+        class="logo"
+      >
 
-  <h1>NERA Privacy Policy</h1>
+      <h1>NERA Privacy Policy</h1>
 
-  <div class="updated">
-    Last updated: August 13, 2026
-  </div>
+      <div class="updated">
+        Last updated: August 13, 2026
+      </div>
 
-</header>
+    </header>
 
 
+    <!-- 1. Introduction -->
     <section class="card">
 
       <h2>1. Introduction</h2>
@@ -183,14 +190,10 @@
         features.
       </p>
 
-      <p>
-        By using NERA, you acknowledge the practices described in this
-        Privacy Policy.
-      </p>
-
     </section>
 
 
+    <!-- 2. Information We Collect -->
     <section class="card">
 
       <h2>2. Information We Collect</h2>
@@ -200,20 +203,20 @@
         required to play the game.
       </p>
 
-      <h3>Anonymous authentication</h3>
+      <h3>Anonymous Authentication</h3>
 
       <p>
-        When you use online multiplayer features, NERA may use Firebase
-        Anonymous Authentication to create an anonymous account identifier
-        for your game session.
+        When you use online multiplayer features, NERA uses Firebase
+        Anonymous Authentication to create an anonymous identifier for
+        your game session.
       </p>
 
       <p>
-        This anonymous authentication does not require you to provide your
-        name, email address, phone number, or password.
+        Anonymous authentication does not require you to provide your
+        real name, email address, phone number, or password.
       </p>
 
-      <h3>Player name or nickname</h3>
+      <h3>Player Name or Nickname</h3>
 
       <p>
         NERA may allow you to enter a player name or nickname when using
@@ -221,8 +224,12 @@
       </p>
 
       <p>
-        Providing a name or nickname is optional unless a particular game
-        feature specifically states otherwise.
+        Providing a player name or nickname is optional.
+      </p>
+
+      <p>
+        If you provide a player name or nickname, it may be shared with
+        the other player in the same online match.
       </p>
 
       <p>
@@ -230,53 +237,67 @@
         name or nickname.
       </p>
 
-      <h3>Game information</h3>
+      <h3>Online Game Information</h3>
 
       <p>
-        When using online multiplayer, information required to operate the
-        game may be transmitted between players and our backend services.
-        This may include game-room information, game state, player
-        identifiers, player names or nicknames, and information necessary
-        to synchronize an online match.
+        When using online multiplayer, NERA transmits information required
+        to operate and synchronize the match. This may include the game
+        room code, anonymous player identifier, player name or nickname
+        when provided, game moves, placements, scores, round information,
+        game status, and message timestamps.
       </p>
 
     </section>
 
 
+    <!-- 3. How We Use Information -->
     <section class="card">
 
       <h2>3. How We Use Information</h2>
 
       <p>
-        Information handled by NERA may be used for the following purposes:
+        Information handled by NERA is used for purposes such as:
       </p>
 
       <ul>
-        <li>To provide and operate online multiplayer games.</li>
-        <li>To create and manage anonymous game sessions.</li>
-        <li>To synchronize game state between players.</li>
-        <li>To display player names or nicknames during multiplayer games.</li>
-        <li>To maintain and improve the reliability and security of the game.</li>
-        <li>To diagnose technical problems and prevent abuse of the service.</li>
+        <li>Providing and operating online multiplayer games.</li>
+        <li>Creating and managing anonymous game sessions.</li>
+        <li>Connecting players through online game rooms.</li>
+        <li>Synchronizing game state between players.</li>
+        <li>Displaying player names or nicknames during multiplayer games.</li>
+        <li>Maintaining the reliability and security of the game.</li>
+        <li>Detecting and resolving technical problems.</li>
+        <li>Preventing misuse of the online multiplayer service.</li>
       </ul>
 
     </section>
 
 
+    <!-- 4. Firebase and Cloud Firestore -->
     <section class="card">
 
-      <h2>4. Firebase and Third-Party Services</h2>
+      <h2>4. Firebase and Cloud Firestore</h2>
 
       <p>
-        NERA may use third-party services provided by Google Firebase to
-        support functionality such as anonymous authentication, online
-        multiplayer, database services, analytics, crash reporting, or
-        other technical services that may be enabled in future versions.
+        NERA uses services provided by Google Firebase to support its
+        online multiplayer functionality.
       </p>
 
       <p>
-        These services may process information according to their own
-        privacy policies and terms.
+        NERA uses Firebase Anonymous Authentication to create an anonymous
+        identifier for online game sessions.
+      </p>
+
+      <p>
+        NERA also uses Google Cloud Firestore to support online multiplayer
+        communication. Game messages may contain the anonymous player
+        identifier, message type, game information, and a
+        server-generated timestamp.
+      </p>
+
+      <p>
+        Firebase and Google may process information according to their
+        applicable privacy policies and terms.
       </p>
 
       <p>
@@ -296,6 +317,7 @@
     </section>
 
 
+    <!-- 5. Data Sharing -->
     <section class="card">
 
       <h2>5. Data Sharing</h2>
@@ -305,14 +327,17 @@
       </p>
 
       <p>
-        Information may be processed by third-party service providers when
-        necessary to provide the game's functionality, such as Firebase
-        services used for authentication, online multiplayer, database
-        functionality, security, diagnostics, or other technical services.
+        When you use online multiplayer, information necessary to operate
+        the match is processed through Firebase and Cloud Firestore.
       </p>
 
       <p>
-        We may also disclose information when required to do so by law or
+        A player name or nickname that you choose to provide may be shared
+        with the other player in the same online match.
+      </p>
+
+      <p>
+        We may disclose information when required by applicable law or
         when reasonably necessary to protect the security, rights, or
         integrity of NERA and its users.
       </p>
@@ -320,28 +345,31 @@
     </section>
 
 
+    <!-- 6. Data Retention -->
     <section class="card">
 
       <h2>6. Data Retention</h2>
 
       <p>
-        We retain information only for as long as reasonably necessary to
-        provide the relevant game functionality, maintain security, resolve
-        technical problems, or satisfy applicable legal requirements.
+        Online multiplayer information is retained only as necessary for
+        the operation, security, maintenance, and troubleshooting of the
+        online game service, subject to the configuration and operation of
+        the underlying Firebase services.
       </p>
 
       <p>
-        Game-room and multiplayer information may be temporary and may be
-        removed when it is no longer required for the operation of the
-        service.
+        NERA does not require users to maintain a traditional personal
+        account containing information such as an email address, phone
+        number, or password.
       </p>
 
     </section>
 
 
+    <!-- 7. Data and Deletion Requests -->
     <section class="card">
 
-      <h2>7. Account and Data Deletion</h2>
+      <h2>7. Data and Deletion Requests</h2>
 
       <p>
         NERA uses anonymous authentication for online multiplayer and does
@@ -350,44 +378,41 @@
       </p>
 
       <p>
-        If NERA later introduces account-based features or persistent user
-        profiles, appropriate account and data deletion functionality will
-        be provided in accordance with applicable requirements.
+        If you have a privacy-related request concerning information
+        associated with your NERA game session, you may contact us using
+        the email address provided below.
       </p>
 
       <p>
-        If you have a privacy-related request concerning information
-        associated with your NERA game session, you may contact us using
-        the contact information provided below.
+        We will review reasonable privacy and data-related requests and
+        take appropriate action where applicable.
       </p>
 
     </section>
 
 
+    <!-- 8. Children's Privacy -->
     <section class="card">
 
       <h2>8. Children's Privacy</h2>
 
       <p>
-        NERA is a general-audience game and is not specifically designed to
-        collect personal information from children.
-      </p>
-
-      <p>
-        We do not knowingly request children to provide personal information
+        NERA is not specifically directed toward children and does not
+        intentionally request children to provide personal information
         such as their real name, email address, phone number, or home
         address.
       </p>
 
       <p>
-        If you believe that a child has provided personal information to us,
-        please contact us so that we can review the situation and take
-        appropriate action.
+        If you believe that a child has provided personal information
+        through NERA, please contact us so that we can review the
+        situation and take appropriate action.
       </p>
 
     </section>
 
 
+    <!-- 9. Security -->
     <section class="card">
 
       <h2>9. Security</h2>
@@ -405,6 +430,7 @@
     </section>
 
 
+    <!-- 10. Changes -->
     <section class="card">
 
       <h2>10. Changes to This Privacy Policy</h2>
@@ -423,6 +449,7 @@
     </section>
 
 
+    <!-- 11. Contact -->
     <section class="card">
 
       <h2>11. Contact Us</h2>
@@ -434,12 +461,7 @@
 
       <p>
         <strong>Email:</strong>
-        alsamilmehboob@gmail.com
-      </p>
-
-      <p>
-        Please replace the email address above with the email address you
-        want users to use for privacy-related questions.
+        YOUR-PRIVACY-EMAIL@example.com
       </p>
 
     </section>
